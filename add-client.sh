@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BOSS=128.40.77.105 # name or IP
+BOSS=boss.local # name or IP
 PORTBASE=20000
 TUNNELGROUP="tunnel"
 TUNNELUSERFMT="client-%03d"
