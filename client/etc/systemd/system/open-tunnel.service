@@ -1,0 +1,16 @@
+[Unit]
+Description=Open reverse SSH tunnel for remote management of this system
+After=network.target sshd.service
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/tunnel/config
+ExecStart=/usr/bin/ssh -o GlobalKnownHostsFile=/etc/tunnel/ssh_known_hosts -i /etc/tunnel/id_rsa -N -R ${REMOTEPORT}:localhost:22 ${REMOTEUSER}@${BOSS}
+Restart=always
+RestartSec=5
+PrivateTmp=yes
+ProtectHome=yes
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target

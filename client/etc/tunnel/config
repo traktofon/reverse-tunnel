@@ -1,0 +1,9 @@
+# name or IP of the boss
+BOSS=
+
+# port on the boss that will be tunneled to SSH on this host
+REMOTEPORT=
+
+# user account on the boss for opening the tunnel
+REMOTEUSER=
+
