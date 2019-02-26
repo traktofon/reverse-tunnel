@@ -5,7 +5,7 @@ After=network.target sshd.service
 [Service]
 Type=simple
 EnvironmentFile=/etc/tunnel/config
-ExecStart=/usr/bin/ssh -o GlobalKnownHostsFile=/etc/tunnel/ssh_known_hosts -i /etc/tunnel/id_rsa -N -R ${REMOTEPORT}:localhost:22 ${REMOTEUSER}@${BOSS}
+ExecStart=/usr/bin/ssh -o ExitOnForwardFailure=yes -o ServerAliveInterval=60 -o GlobalKnownHostsFile=/etc/tunnel/ssh_known_hosts -i /etc/tunnel/id_rsa -N -R ${REMOTEPORT}:localhost:22 ${REMOTEUSER}@${BOSS}
 Restart=always
 RestartSec=5
 PrivateTmp=yes
